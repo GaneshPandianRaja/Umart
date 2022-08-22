@@ -26,7 +26,7 @@ export class ProductSearchComponent implements OnInit{
       this.searchText = result['search'] || 'samsung';
       this.pageNumber = result['page'] || 1;
       this.showLoadingBanner = true;
-      const searchElement = document.querySelector('app-product-search');
+      const searchElement = document.querySelector('main');
       searchElement?.scrollIntoView({behavior: "smooth", block: "start", inline: "start"});      this.getProductBySearchText(this.searchText, this.pageNumber);
     });
   }
@@ -39,6 +39,8 @@ export class ProductSearchComponent implements OnInit{
           this.paging = {};
           this.isLoaded = true;
           this.showLoadingBanner = false;
+        } else {
+          this.router.navigate(['contact-support'])
         }
         return throwError(error)
       })

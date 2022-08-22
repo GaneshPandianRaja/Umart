@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ecommerce-app": {
+    "Umart": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ecommerce-app/browser",
+            "outputPath": "dist/Umart/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -74,11 +74,11 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "ecommerce-app:build:production",
+              "browserTarget": "Umart:build:production",
               "proxyConfig": "proxy.conf.json"
             },
             "development": {
-              "browserTarget": "ecommerce-app:build:development",
+              "browserTarget": "Umart:build:development",
               "proxyConfig": "proxy.conf.json"
             }
           },
@@ -87,7 +87,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ecommerce-app:build"
+            "browserTarget": "Umart:build"
           }
         },
         "test": {
@@ -111,7 +111,7 @@
         "server": {
           "builder": "@angular-devkit/build-angular:server",
           "options": {
-            "outputPath": "dist/ecommerce-app/server",
+            "outputPath": "dist/Umart/server",
             "main": "server.ts",
             "tsConfig": "tsconfig.server.json",
             "inlineStyleLanguage": "css"
@@ -138,12 +138,12 @@
           "builder": "@nguniversal/builders:ssr-dev-server",
           "configurations": {
             "development": {
-              "browserTarget": "ecommerce-app:build:development",
-              "serverTarget": "ecommerce-app:server:development"
+              "browserTarget": "Umart:build:development",
+              "serverTarget": "Umart:server:development"
             },
             "production": {
-              "browserTarget": "ecommerce-app:build:production",
-              "serverTarget": "ecommerce-app:server:production"
+              "browserTarget": "Umart:build:production",
+              "serverTarget": "Umart:server:production"
             }
           },
           "defaultConfiguration": "development"
@@ -157,12 +157,12 @@
           },
           "configurations": {
             "production": {
-              "browserTarget": "ecommerce-app:build:production",
-              "serverTarget": "ecommerce-app:server:production"
+              "browserTarget": "Umart:build:production",
+              "serverTarget": "Umart:server:production"
             },
             "development": {
-              "browserTarget": "ecommerce-app:build:development",
-              "serverTarget": "ecommerce-app:server:development"
+              "browserTarget": "Umart:build:development",
+              "serverTarget": "Umart:server:development"
             }
           },
           "defaultConfiguration": "production"

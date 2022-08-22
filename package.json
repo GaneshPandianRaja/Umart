@@ -1,5 +1,5 @@
 {
-  "name": "ecommerce-app",
+  "name": "Umart",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,10 +7,10 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "dev:ssr": "ng run ecommerce-app:serve-ssr",
-    "serve:ssr": "node dist/ecommerce-app/server/main.js",
-    "build:ssr": "ng build && ng run ecommerce-app:server",
-    "prerender": "ng run ecommerce-app:prerender"
+    "dev:ssr": "ng run Umart:serve-ssr",
+    "serve:ssr": "node dist/Umart/server/main.js",
+    "build:ssr": "ng build && ng run Umart:server",
+    "prerender": "ng run Umart:prerender"
   },
   "private": true,
   "dependencies": {
