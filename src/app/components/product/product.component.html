@@ -1,0 +1,46 @@
+<div class="card shadow border-box h-100">
+    <div class="product_image">
+        <ng-container *ngIf="product.images && 
+        product.showImageCarousel !== undefined && product.images.length > 1; else showimage">
+            <app-image-carousel [images]="product.images"></app-image-carousel>
+        </ng-container>
+        <ng-template #showimage>
+            <img class="img-fluid product_img" appLazyImage [attr.data-src]="product.images[0]">
+        </ng-template>
+    </div>
+
+    <div class="product_info">
+        <div class="product_name"> {{product.name}}</div>
+        <div class="d-flex flex-column">
+            <div class="product_price d-flex flex-column">
+                <strong class="product_orginal_price">
+                    {{product.price.priceDisplay}}
+                </strong>
+                <div *ngIf="product.price.discount && product.price.discount > 0"
+                    class="product_discount d-flex align-items-center">
+                    <span class="discount_price">{{product.price.strikeThroughPriceDisplay}}</span>
+                    <span class="badge bg-info">{{product.price.discount}}%</span>
+                </div>
+            </div>
+            <div *ngIf="product.location" class="location d-flex align-items-center">
+                <i class="fa fa-map-marker" style="color: #9dccf2" aria-hidden="true"></i>
+                <span> {{product.location}} </span>
+            </div>
+            <div *ngIf="product.review && product.review.count > 0"
+                class="product_rating d-flex align-items-center justify-content-start">
+                <span class="badge bg-success text-white">
+                    {{product.review.absoluteRating}}
+                    <i class="fa-solid fa-star"></i>
+                </span>
+                <span class="product_review_count">
+                    ({{product.review.count}})
+                </span>
+            </div>
+        </div>
+        <div class="add_to_cart w-100">
+            <button class="btn btn-outline-primary w-100" (click)="addItemtoCart(product)">
+                <span> Add to cart </span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+{
+  "/backend/*": {
+    "target": "https://www.blibli.com",
+    "changeOrigin": true
+  },
+  "/posts": {
+    "target": "https://jsonplaceholder.typicode.com/posts",
+     "pathRewrite": {
+      "^/posts": ""
+     },
+    "changeOrigin": true
+  }
+  
+}

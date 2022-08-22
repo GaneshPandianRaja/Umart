@@ -1,0 +1,54 @@
+<header class="header_shadow fixed-top d-flex align-items-center justify-content-between">
+    <div class="app_icon">
+        <a href="javascript:void(0)">
+            <img src="../../../assets/images/logo.jpg" width="75" height="50" routerLink="" aria-label="Logo"
+                alt="Logo">
+        </a>
+    </div>
+    <div class="search_container">
+        <div class="search_input">
+            <input type="text" id="product_search" (click)="onSearchFieldClick()"
+                placeholder="Search for products, brands, etc..." [(ngModel)]="searchText"
+                (keyup.enter)="searchProducts()">
+        </div>
+        <div class="searh_icons">
+            <div class="search-close" (click)="clearSearch()" *ngIf="searchText && searchText.trim().length > 0">
+                <svg focusable="false" height="16px" viewBox="0 0 24 24" width="18px"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z">
+                    </path>
+                    <path d="M0 0h24v24H0z" fill="none"></path>
+                </svg>
+            </div>
+            <button class="search_icon" (click)="searchProducts">
+                <svg width="20" height="20" viewBox="0 0 17 18" class="" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="#2874F1" fill-rule="evenodd">
+                        <path class="_34RNph"
+                            d="m11.618 9.897l4.225 4.212c.092.092.101.232.02.313l-1.465 1.46c-.081.081-.221.072-.314-.02l-4.216-4.203">
+                        </path>
+                        <path class="_34RNph"
+                            d="m6.486 10.901c-2.42 0-4.381-1.956-4.381-4.368 0-2.413 1.961-4.369 4.381-4.369 2.42 0 4.381 1.956 4.381 4.369 0 2.413-1.961 4.368-4.381 4.368m0-10.835c-3.582 0-6.486 2.895-6.486 6.467 0 3.572 2.904 6.467 6.486 6.467 3.582 0 6.486-2.895 6.486-6.467 0-3.572-2.904-6.467-6.486-6.467">
+                        </path>
+                    </g>
+                </svg>
+            </button>
+
+        </div>
+        <ul class="list-group w-100" #userSearchList>
+            <a href="javascript:void(0)"
+                *ngFor="let searchHistory of userSearchHistoryList | filter:searchText:'searchText'"
+                (click)="onSearchHistorySelection($event, searchHistory.searchText)"
+                class="list-group-item list-group-item-action d-flex align-items-center">
+                <i class="fa-solid" [ngClass]="{'fa-clock': searchHistory.type === 'user_search',
+                 'fa-magnifying-glass': searchHistory.type !== 'user_search'}">
+                </i>
+                <span class="searchText"> {{searchHistory.searchText}} </span>
+            </a>
+        </ul>
+    </div>
+    <div class="cart_icon d-flex align-items-center">
+        <i class="fas fa-cart-plus fntsz20"></i>
+        Cart
+    </div>
+</header>

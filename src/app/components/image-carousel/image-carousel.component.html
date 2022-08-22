@@ -1,0 +1,7 @@
+<div class="slick-wrapper">
+    <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
+        <div ngxSlickItem *ngFor="let image of images" class="slide">
+            <img appLazyImage class="product_img" [attr.data-lazy]="image" width="100%">
+        </div>
+    </ngx-slick-carousel>
+</div>
