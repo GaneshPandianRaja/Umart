@@ -13,7 +13,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { HttpErrorInterceptor } from './interceptors/http-interceptor';
 import { LazyImageDirective } from './directive/lazy-image.directive';
-import { IvyCarouselModule } from 'angular-responsive-carousel';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { FilterPipe } from './pipes/filter.pipe';
 
@@ -29,12 +28,11 @@ import { FilterPipe } from './pipes/filter.pipe';
     FilterPipe
   ],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
     NgxPaginationModule,
-    IvyCarouselModule,
     SlickCarouselModule
   ],
   providers: [
