@@ -15,7 +15,9 @@ import { HttpErrorInterceptor } from './interceptors/http-interceptor';
 import { LazyImageDirective } from './directive/lazy-image.directive';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { FilterPipe } from './pipes/filter.pipe';
+import { environment } from 'src/environments/environment';
 
+environment
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +39,9 @@ import { FilterPipe } from './pipes/filter.pipe';
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
-
+    { provide: 'API_END_POINT', useValue: () => {
+      return environment.production ? 'https://www.blibli.com' : '';
+    }}
   ],
   bootstrap: [AppComponent]
 })
