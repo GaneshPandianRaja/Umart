@@ -16,6 +16,10 @@ import { LazyImageDirective } from './directive/lazy-image.directive';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { FilterPipe } from './pipes/filter.pipe';
 import { environment } from 'src/environments/environment';
+import { StoreModule } from '@ngrx/store';
+import { productReducer } from './product_store/product_reducer';
+import { ProductEffects } from './product_store/product_effects';
+import { EffectsModule } from '@ngrx/effects';
 
 environment
 @NgModule({
@@ -35,11 +39,14 @@ environment
     FormsModule,
     HttpClientModule,
     NgxPaginationModule,
-    SlickCarouselModule
+    SlickCarouselModule,
+    StoreModule.forRoot({ product: productReducer }),
+    EffectsModule.forRoot([ProductEffects])
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
     { provide: 'API_END_POINT', useValue: () => {
+      console.log(environment.production);
       return environment.production ? 'https://www.blibli.com' : '';
     }}
   ],

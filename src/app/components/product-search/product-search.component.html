@@ -1,8 +1,8 @@
 <div class="p-5">
     <div class="loader" *ngIf="showLoadingBanner"></div>
     <div [class.loadingBg]="showLoadingBanner"  *ngIf="isLoaded">
-        <ng-container *ngIf="productList && productList.length > 0; else showNoSearchFoundMsg">
-            <app-product-list [products]="productList" [paging]="paging"></app-product-list>
+        <ng-container *ngIf="products && products.length > 0; else showNoSearchFoundMsg">
+            <app-product-list [products]="products" [paging]="paging"></app-product-list>
             <div class="pagination d-flex align-item-center">
                 <pagination-controls id="product" (pageChange)="pageChanged($event)"
                     (pageBoundsCorrection)="pageChanged($event)" [maxSize]="9" [directionLinks]="true" [autoHide]=true
